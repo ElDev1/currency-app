@@ -1,8 +1,8 @@
 export const DolarCard = () => {
   return (
     <div>
-        <h3 className="text-center bg-blue-400 mx-6 rounded-t-md text-white">Dólar blue</h3>
-        <div className="flex px-5 bg-gray-100 shadow-md mx-6 rounded-b-md justify-between">
+        <h3 className="text-center bg-blue-400 rounded-t-md text-white">Dólar blue</h3>
+        <div className="flex px-5 bg-gray-100 shadow-md rounded-b-md justify-between">
         <div className="text-center">
             <h3 className="text-gray-500 font-medium text-sm">COMPRA</h3>
             <p className="text-green-700 font-bold text-xl">$ 481,00</p>
