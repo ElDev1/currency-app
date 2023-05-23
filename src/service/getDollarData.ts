@@ -3,13 +3,13 @@ import { JSDOM } from 'jsdom'
 
 type DollarName = 'Dólar blue' | 'Dólar oficial' | 'Dólar bolsa' 
 
-interface Dolar {
+interface Dollar {
     buy: string
     sell: string
 }
 
 type DollarPrices = {
-    [key in DollarName]?: Dolar
+    [key in DollarName]?: Dollar
   }
 
 interface DollarTypes {

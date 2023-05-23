@@ -1,4 +1,17 @@
-export const DolarCard = () => {
+interface Dollar {
+  buy: string
+  sell: string
+}
+
+type DollarName = 'Dólar blue' | 'Dólar oficial' | 'Dólar bolsa' 
+
+interface Props {
+  dollarType: string
+  dollarValues: Dollar
+  amount: string 
+}
+
+export const DolarCard = ({ dollarType, dollarValues, amount }: Props) => {
   return (
     <div>
         <h3 className="text-center bg-blue-400 rounded-t-md text-white">Dólar blue</h3>
