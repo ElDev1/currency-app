@@ -33,13 +33,27 @@ const dollars: DollarTypes[] = [
 ]
 
 export const getDollarPrices = async () => {
-    const result: DollarPrices = {}
+    const results: DollarPrices = {}
 
     for(const dollar of dollars) {
         const {type, url} = dollar
 
         const res = await fetch(url, { cache: 'no-store' })
 
-        console.log(res)
+        if(!res.ok) throw new Error(`Error fetching, ${res.status}`)
+
+        const page = await res.text()
+        const dom = new JSDOM(page)
+        const document = dom.window.document
+
+        const values: HTMLDivElement[] = Array.from(document.querySelectorAll('.value'))
+        const buy = values[0]?.textContent
+        const sell = values[1]?.textContent
+
+        if(buy !== null && sell !== null) {
+          const result = {  buy, sell }
+          results[type] = result  
+        }
     }
+    return results
 }
