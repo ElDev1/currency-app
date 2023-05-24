@@ -23,7 +23,7 @@ export const Skeleton = () => {
             </div>
             <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
         </div>
-        <p className="sr-only">Loading...</p>
+        <p className="text-white text-center pt-3">Cargando...</p>
     </div>
 
   )

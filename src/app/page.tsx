@@ -4,9 +4,11 @@ import '../components/DolarCard'
 import { DolarCard } from '../components/DolarCard'
 import { useEffect, useState } from 'react'
 import { Skeleton } from '@/components/Skeleton'
+import { mockData } from '@/mock/mockData'
 
 export default function Home() {
-  const [dollarPrices, setDollarPrices] = useState({}) 
+
+  const [dollarPrices, setDollarPrices] = useState(mockData) 
   const [amount, setAmount] = useState('0')
   const [loading, setLoading] = useState(true)
 

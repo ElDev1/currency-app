@@ -3,8 +3,6 @@ interface Dollar {
   sell: string
 }
 
-type DollarName = 'Dólar blue' | 'Dólar oficial' | 'Dólar bolsa' 
-
 interface Props {
   dollarType: string
   dollarValues: Dollar
