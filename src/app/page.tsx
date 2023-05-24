@@ -9,7 +9,7 @@ import { mockData } from '@/mock/mockData'
 export default function Home() {
 
   const [dollarPrices, setDollarPrices] = useState(mockData) 
-  const [amount, setAmount] = useState('0')
+  const [amount, setAmount] = useState('')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -21,11 +21,22 @@ export default function Home() {
       })
   }, [])
 
+  const handleChange = (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    const value = target.value
+    const numberRegEx = /^[0-9]*$/
+    const maxDigits = 8
+
+    if (numberRegEx.test(value) && value.length <= maxDigits) {
+      setAmount(value.replace(/^0*/, ''))
+    }
+  }
+
   return (
     <main className="w-2/5 p-3 shadow-md bg-white rounded-md flex max-[1370px]:flex-col">
       <section className="flex-1 flex flex-col justify-center items-center">
         <h2 className="text-center text-xl text-gray-600 font-bold">Monto en ARS</h2>
-        <input type="number" min="0" max="1000000" className="bg-gray-100 my-4 focus:outline-none h-11 w-40 rounded-md px-2"/>
+        <input type="number" value={amount} onChange={handleChange} className="bg-gray-100 my-4 focus:outline-none h-11 w-40 rounded-md px-2"/>
       </section>
       <section className="flex-1 h-auto bg-green-700 rounded-md flex flex-col gap-5 p-5">
         <h2 className="text-white font-bold text-center">Cotizaciones</h2>
