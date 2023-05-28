@@ -1,5 +1,13 @@
+import { ExpenseTracker } from "@/components/ExpenseTracker"
+
 export default function page() {
+
   return (
-    <div>my page</div>
+    <section className="bg-white p-9 rounded-md flex">
+      <ExpenseTracker />
+      <div>
+        <h1>History</h1>
+      </div>
+    </section>
   )
 }

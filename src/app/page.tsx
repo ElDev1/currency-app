@@ -21,9 +21,8 @@ export default function Home() {
       })
   }, [])
 
-  const handleChange = (e: Event) => {
-    const target = e.target as HTMLInputElement;
-    const value = target.value
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
     const numberRegEx = /^[0-9]*$/
     const maxDigits = 8
 

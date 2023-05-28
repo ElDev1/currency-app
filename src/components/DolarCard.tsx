@@ -9,7 +9,11 @@ interface Props {
   amount: string 
 }
 
-const colors = {
+interface colorsType {
+  [key: string]: string
+}
+
+const colors: colorsType = {
   "Dólar blue": "bg-blue-400",
   "Dólar oficial": "bg-orange-400",
   "Dólar bolsa": "bg-pink-400"
