@@ -19,6 +19,7 @@ interface Props {
 export default function HistoryCard({text, amount, id, setHistoryList, historyList}: Props) {
   const handleDelete = () => {
     const newArr = historyList.filter(elem => elem.id != id)
+    localStorage.setItem('historyList', JSON.stringify(newArr))
     setHistoryList(newArr)
   }
 

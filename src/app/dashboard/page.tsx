@@ -2,7 +2,7 @@
 
 import { ExpenseTracker } from "@/components/ExpenseTracker"
 import HistoryCard from "@/components/HistoryCard"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 type HistoryElement = {
   id: number
@@ -10,8 +10,15 @@ type HistoryElement = {
   amount: number
 }
 
-
 export default function Page() {
+  
+  useEffect(() => {
+    const data = localStorage.getItem("historyList")
+    if(data) {
+      setHistoryList(JSON.parse(data))
+    }
+  }, [])
+
   const [historyList, setHistoryList] = useState<HistoryElement[]>([])
 
   return (

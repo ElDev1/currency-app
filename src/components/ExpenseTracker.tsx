@@ -32,17 +32,20 @@ export const ExpenseTracker = ({historyList, setHistoryList}: Props) => {
             text: descriptionButton.current?.value,
             amount: Number(amountButton.current?.value)
         }
-        setHistoryList([...historyList, newElem])
+        const newList = [...historyList, newElem]
+        localStorage.setItem('historyList', JSON.stringify(newList))
+        setHistoryList(newList)
     } else {
         const newElem = {
             id: window.crypto.randomUUID(),
             text: descriptionButton.current?.value,
             amount: Number(amountButton.current?.value) * -1
         }
-        setHistoryList([...historyList, newElem])
+        const newList = [...historyList, newElem]
+        localStorage.setItem('historyList', JSON.stringify(newList))
+        setHistoryList(newList)
     }
     formRef.current?.reset()
-    //e.target.reset()
   }
 
   return (
