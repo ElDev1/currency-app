@@ -21,7 +21,7 @@ export default function Page() {
         <h1>Historial</h1>
         <div className="flex flex-col gap-1">
           {
-            historyList.map(elem => <HistoryCard key={elem.id} text={elem.text} amount={elem.amount} setHistoryList={setHistoryList} />)
+            historyList.map(elem => <HistoryCard key={elem.id} text={elem.text} id={elem.id} amount={elem.amount} historyList={historyList} setHistoryList={setHistoryList} />)
           }
         </div>
       </div>
