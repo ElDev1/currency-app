@@ -25,7 +25,7 @@ export const DolarCard = ({ dollarType, dollarValues, amount }: Props) => {
   const sell = dollarValues.sell.slice(1)
 
   const totalPriceBuy = (Number(amount) / Number(buy)).toFixed(2)
-  const totalPriceSell = (Number(amount) / Number(buy)).toFixed(2)
+  const totalPriceSell = (Number(amount) / Number(sell)).toFixed(2)
 
   return (
     <div>

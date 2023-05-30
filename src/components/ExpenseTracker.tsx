@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 
 type historyObj = {
+    id: number
     text: string 
     amount: number
   }
@@ -12,6 +13,7 @@ interface Props {
 
 export const ExpenseTracker = ({historyList, setHistoryList}: Props) => {
   const [expense, setExpense] = useState(false)
+  const formRef = useRef<HTMLFormElement>(null);
   const amountButton = useRef<HTMLInputElement>(null)
   const descriptionButton = useRef<HTMLInputElement>(null) 
 
@@ -26,20 +28,22 @@ export const ExpenseTracker = ({historyList, setHistoryList}: Props) => {
     e.preventDefault()
     if(!expense) {
         const newElem = {
+            id: window.crypto.randomUUID(),
             text: descriptionButton.current?.value,
             amount: Number(amountButton.current?.value)
         }
         setHistoryList([...historyList, newElem])
     } else {
         const newElem = {
+            id: window.crypto.randomUUID(),
             text: descriptionButton.current?.value,
             amount: Number(amountButton.current?.value) * -1
         }
         setHistoryList([...historyList, newElem])
     }
+    formRef.current?.reset()
+    //e.target.reset()
   }
-
-  console.log(historyList)
 
   return (
     <div className="max-w-[250px] w-full">
@@ -56,7 +60,7 @@ export const ExpenseTracker = ({historyList, setHistoryList}: Props) => {
             <p>tu balance</p>
             <p className="text-xl">${total}</p>
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mt-5">
+        <form onSubmit={handleSubmit} ref={formRef} className="flex flex-col gap-2 mt-5">
             <input type="text" ref={descriptionButton} required className="bg-gray-200 rounded-md w-full max-w-[250px] p-2 outline-none" placeholder="Compra de supermercado..." />
             <input type="number" ref={amountButton} required className="bg-gray-200 rounded-md w-full max-w-[250px] p-2 outline-none" placeholder="00.00"/>
             <div className="flex gap-2">
