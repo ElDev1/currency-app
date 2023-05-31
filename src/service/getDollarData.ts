@@ -1,4 +1,3 @@
-import { url } from 'inspector'
 import { JSDOM } from 'jsdom'
 
 type DollarName = 'Dólar blue' | 'Dólar oficial' | 'Dólar bolsa' 

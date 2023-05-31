@@ -13,7 +13,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/get-dollar', { next: { revalidate: 60 } })
+    fetch('https://currency-app-beige.vercel.app/api/get-dollar', { next: { revalidate: 60 } })
       .then(res => res.json())
       .then(data => { 
         setDollarPrices(data)

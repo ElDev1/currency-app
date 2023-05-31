@@ -64,8 +64,8 @@ export const ExpenseTracker = ({historyList, setHistoryList}: Props) => {
             <p className="text-xl">${total}</p>
         </div>
         <form onSubmit={handleSubmit} ref={formRef} className="flex flex-col gap-2 mt-5">
-            <input type="text" ref={descriptionButton} required className="bg-gray-200 rounded-md w-full max-w-[250px] p-2 outline-none" placeholder="Compra de supermercado..." />
-            <input type="number" ref={amountButton} required className="bg-gray-200 rounded-md w-full max-w-[250px] p-2 outline-none" placeholder="00.00"/>
+            <input type="text" ref={descriptionButton} required maxLength={22} className="bg-gray-200 rounded-md w-full max-w-[250px] p-2 outline-none" placeholder="Compra de supermercado..." />
+            <input type="number" ref={amountButton} required max={100000000} min={0} className="bg-gray-200 rounded-md w-full max-w-[250px] p-2 outline-none" placeholder="00.00"/>
             <div className="flex gap-2">
                 <button type="submit" onClick={() => setExpense(false)} className="px-5 py-1 bg-green-700 rounded-md hover:bg-green-500 text-white">+</button>
                 <button type="submit" onClick={() => setExpense(true)} className="px-5 py-1 bg-red-700 rounded-md hover:bg-red-500 text-white">-</button>
