@@ -13,7 +13,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('api/get-dollar', { next: { revalidate: 60 } })
+    fetch('api/get-dollar')
       .then(res => res.json())
       .then(data => { 
         setDollarPrices(data)

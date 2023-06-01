@@ -37,7 +37,7 @@ export const getDollarPrices = async () => {
     for(const dollar of dollars) {
         const {type, url} = dollar
 
-        const res = await fetch(url, { cache: 'no-store' })
+        const res = await fetch(url)
 
         if(!res.ok) throw new Error(`Error fetching, ${res.status}`)
 
